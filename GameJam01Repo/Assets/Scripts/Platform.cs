@@ -9,20 +9,31 @@ public class Platform : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)
         {
-           // foreach (ContactPoint2D contact in collision.contacts)
-            //{
-              //  Vector2 sideCheck = contact.normal;
-             //   if (!(sideCheck == Vector2.up))
-              //  {
-               //     Debug.Log("able to jump");
+
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Vector2 sideCheck = contact.normal;
+                if ((sideCheck == Vector2.up))
+                {
+                   // Debug.Log("hit top");
+                    
+                }
+                else if((sideCheck == Vector2.down))
+                {
+                   // Debug.Log("hit bottom");
+                }
+                else if ((sideCheck == Vector2.left))
+                {
+                    //Debug.Log("hit left");
                     player.enableJump();
-               // }
-               // else
-               // {
-               //     Debug.Log("hit bottom of block");
-               // }
-            //}
-                
+                }
+                else if ((sideCheck == Vector2.right))
+                {
+                    //Debug.Log("hit right");
+                    player.enableJump();
+                }
+            }
+
         }
     }
 }

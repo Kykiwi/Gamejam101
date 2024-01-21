@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     AudioSource audioSource;
+    BoxCollider2D coll;
     
     Rigidbody2D body;
     float inputHorizontal;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coll = GetComponent<BoxCollider2D>();
         body = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
 
@@ -29,8 +31,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         inputHorizontal = Input.GetAxis("Horizontal");
-      
-        if ((Input.GetButtonDown("Jump") || (Input.GetAxis("Jump") > 0)) && canjump)
+       
+        if ((Input.GetButtonDown("Jump") || (Input.GetAxis("Jump") > 0)) && (IsGrounded()|| canjump))
         {
 
             body.velocity = new Vector2(body.velocity.x, jumpHeight * dirGravity);
@@ -56,4 +58,13 @@ public class Player : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
     }
+   
+    private bool IsGrounded()
+    {
+        
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down*dirGravity, 0.1f,LayerMask.GetMask("Platforms"));
+        
+    }
+
+
 }
