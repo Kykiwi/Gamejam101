@@ -4,48 +4,30 @@ using UnityEngine;
 
 public class MovePlatform : MonoBehaviour
 {
-    Rigidbody2D body;
+    [SerializeField] GameObject[] waypoints;
     public float speed = 1.0f;
-    public float timeMove = 2.0f;
-    public bool vertical;
-    float timer;
-    int direction = 1;
+    int index = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        body = GetComponent<Rigidbody2D>();
-        timer = timeMove;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        timer -= Time.deltaTime;
-        if (timer < 0)
-        {
-            direction = -direction;
-            timer = timeMove;
-        }
-    }
     void FixedUpdate()
     {
-        Vector2 position = body.position;
-
-        if (vertical)
+        if (Vector2.Distance(waypoints[index].transform.position,transform.position)< 0.1f)
         {
-
-            position.y = position.y + Time.deltaTime * speed * direction; ;
-
+            index++;
+            if(index>= waypoints.Length)
+            {
+                index = 0;
+            }
         }
-        else
-        {
+        
+        transform.position = Vector2.MoveTowards(transform.position, waypoints[index].transform.position, Time.deltaTime * speed);
 
-            position.x = position.x + Time.deltaTime * speed * direction; ;
-        }
-
-        body.MovePosition(position);
-
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.transform.SetParent(transform);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        collision.gameObject.transform.SetParent(null);
     }
 }

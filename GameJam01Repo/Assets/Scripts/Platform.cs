@@ -15,12 +15,12 @@ public class Platform : MonoBehaviour
                 Vector2 sideCheck = contact.normal;
                 if ((sideCheck == Vector2.up))
                 {
-                   // Debug.Log("hit top");
+                   //Debug.Log("hit top");
                     
                 }
                 else if((sideCheck == Vector2.down))
                 {
-                   // Debug.Log("hit bottom");
+                   //Debug.Log("hit bottom");
                 }
                 else if ((sideCheck == Vector2.left))
                 {
@@ -29,7 +29,7 @@ public class Platform : MonoBehaviour
                 }
                 else if ((sideCheck == Vector2.right))
                 {
-                    //Debug.Log("hit right");
+                   // Debug.Log("hit right");
                     player.enableJump();
                 }
             }
