@@ -20,13 +20,52 @@ public class MovePlatform : MonoBehaviour
         }
         
         transform.position = Vector2.MoveTowards(transform.position, waypoints[index].transform.position, Time.deltaTime * speed);
+       
+    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    collision.gameObject.transform.SetParent(transform);
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    collision.gameObject.transform.SetParent(null);
+    //}
 
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.gameObject.transform.SetParent(transform);
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (player != null)
+        {
+
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Vector2 sideCheck = contact.normal;
+                if ((sideCheck == Vector2.up))
+                {
+                    //Debug.Log("hit top");
+                    collision.gameObject.transform.SetParent(transform);
+
+                }
+                else if ((sideCheck == Vector2.down))
+                {
+                    //Debug.Log("hit bottom");
+                    collision.gameObject.transform.SetParent(transform);
+                }
+                else if ((sideCheck == Vector2.left))
+                {
+                    //Debug.Log("hit left");
+                    
+                }
+                else if ((sideCheck == Vector2.right))
+                {
+                    // Debug.Log("hit right");
+                    
+                }
+            }
+
+        }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         collision.gameObject.transform.SetParent(null);
     }
