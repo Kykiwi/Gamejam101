@@ -3,28 +3,36 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerLife : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject reactText;
+    Animator ani;
+    Rigidbody2D body;
+    private void Start()
     {
-        
+        reactText.SetActive(false);
+        body = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
     }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
         if (collision.gameObject.CompareTag("Trap"))
         {
             
-            PlayerDeath();
+            PlayerDeath();    
         }
     }
     void PlayerDeath()
     {
-        
         // change animation, sound physics if needed
-        ResetLevel();
+        reactText.SetActive(true);
+        body.bodyType = RigidbodyType2D.Static;
+        ani.SetTrigger("death");
+       
     }
     void ResetLevel()
     {
