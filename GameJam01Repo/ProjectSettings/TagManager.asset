@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trap
   - Collectables
+  - Pit
   layers:
   - Default
   - TransparentFX

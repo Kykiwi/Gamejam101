@@ -7,12 +7,19 @@ public class ExitLevel : MonoBehaviour
 {
     public AudioClip clip;
 
+    [SerializeField] GameObject exitLevel;
+    private void Start()
+    {
+        exitLevel.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
          if(player != null)
         {
             player.PlayeAudio(clip);
+            exitLevel.SetActive(true);
             NextLevel();
         }
     }

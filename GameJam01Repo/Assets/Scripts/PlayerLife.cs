@@ -7,12 +7,13 @@ using TMPro;
 
 public class PlayerLife : MonoBehaviour
 {
-    [SerializeField] GameObject reactText;
+    [SerializeField] GameObject gameOverReact, fallReact;
     Animator ani;
     Rigidbody2D body;
     private void Start()
     {
-        reactText.SetActive(false);
+        gameOverReact.SetActive(false);
+        fallReact.SetActive(false);
         body = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
     }
@@ -22,14 +23,19 @@ public class PlayerLife : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Trap"))
         {
-            
+            gameOverReact.SetActive(true);
             PlayerDeath();    
+        }
+        if (collision.gameObject.CompareTag("Pit"))
+        {
+            fallReact.SetActive(true);
+            PlayerDeath();
         }
     }
     void PlayerDeath()
     {
         // change animation, sound physics if needed
-        reactText.SetActive(true);
+        
         body.bodyType = RigidbodyType2D.Static;
         ani.SetTrigger("death");
        
