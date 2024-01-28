@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ExitLevel : MonoBehaviour
 {
-    public AudioClip clip;
-
-    [SerializeField] GameObject exitLevel;
+    [SerializeField] AudioClip clip;
+    
+    Animator anim;
+    [SerializeField] GameObject exitLevelReact;
     private void Start()
     {
-        exitLevel.SetActive(false);
+        anim = GetComponent<Animator>();
+       
+        exitLevelReact.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,14 +21,16 @@ public class ExitLevel : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
          if(player != null)
         {
+            
             player.PlayeAudio(clip);
-            exitLevel.SetActive(true);
-            NextLevel();
+            exitLevelReact.SetActive(true);
+            anim.SetTrigger("Tele");
         }
     }
     void NextLevel()
     {
-
+        
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }

@@ -1519,6 +1519,10 @@ PrefabInstance:
       propertyPath: exitLevel
       value: 
       objectReference: {fileID: 955557359}
+    - target: {fileID: 41107038932582317, guid: cc95840c9ed96be4c842506cc636e1e3, type: 3}
+      propertyPath: exitLevelReact
+      value: 
+      objectReference: {fileID: 955557359}
     - target: {fileID: 3317549066701989536, guid: cc95840c9ed96be4c842506cc636e1e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.09
@@ -1559,6 +1563,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6218146414133944275, guid: cc95840c9ed96be4c842506cc636e1e3, type: 3}
+      propertyPath: exitLevelReact
+      value: 
+      objectReference: {fileID: 955557359}
     - target: {fileID: 7772984821652077502, guid: cc95840c9ed96be4c842506cc636e1e3, type: 3}
       propertyPath: m_Name
       value: exit
