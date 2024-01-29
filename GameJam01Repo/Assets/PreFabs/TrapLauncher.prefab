@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1551295a47ce5f4491ea596cd586b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trap: {fileID: 7723029091550843344, guid: 8820ac0755ef4db45966c515a476fa9e, type: 3}
-  speed: 500
-  angle: 180
-  shotTime: 1
+  trap: {fileID: 0}
+  speed: 700
+  angle: 0
+  shotTime: 2
 --- !u!50 &2731677878632286607
 Rigidbody2D:
   serializedVersion: 4

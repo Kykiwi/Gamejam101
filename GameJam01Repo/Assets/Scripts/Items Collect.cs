@@ -13,7 +13,7 @@ public class ItemsCollect : MonoBehaviour
         {
             Destroy(collision.gameObject);
             collNum++;
-            collectText.text = "coins: " + collNum;
+            collectText.text = " x " + collNum;
         }
     }
 }
