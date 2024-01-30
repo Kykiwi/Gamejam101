@@ -22,8 +22,8 @@ public class ExitLevel : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
          if(player != null)
         {
-            
-            
+
+            portalSound.Play();
             exitLevelReact.SetActive(true);
             anim.SetTrigger("Tele");
         }
