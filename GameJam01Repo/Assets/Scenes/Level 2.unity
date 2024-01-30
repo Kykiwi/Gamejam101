@@ -2608,7 +2608,7 @@ Tilemap:
       - {fileID: -62966469, guid: 39483f492cb9a924e93e010a06db11a5, type: 3}
       - {fileID: -477771330, guid: 39483f492cb9a924e93e010a06db11a5, type: 3}
       - {fileID: -1485677780, guid: 39483f492cb9a924e93e010a06db11a5, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 6, y: -8, z: 0}
@@ -3712,7 +3712,7 @@ Tilemap:
       - {fileID: -62966469, guid: 39483f492cb9a924e93e010a06db11a5, type: 3}
       - {fileID: -477771330, guid: 39483f492cb9a924e93e010a06db11a5, type: 3}
       - {fileID: -1485677780, guid: 39483f492cb9a924e93e010a06db11a5, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 54, y: -8, z: 0}
@@ -4345,9 +4345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7335057965899406572, guid: 6021eea9e7d2dd84cbfd0aaf95ea8f7b, type: 3}
       propertyPath: m_text
-      value: 'Coins: 0
-
-'
+      value: ' x 0'
       objectReference: {fileID: 0}
     - target: {fileID: 7335057965899406572, guid: 6021eea9e7d2dd84cbfd0aaf95ea8f7b, type: 3}
       propertyPath: m_colorMode
@@ -12528,7 +12526,7 @@ Transform:
   m_GameObject: {fileID: 2061834979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.62, y: -0.27, z: -10}
+  m_LocalPosition: {x: -20.6042, y: -0.2701731, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
