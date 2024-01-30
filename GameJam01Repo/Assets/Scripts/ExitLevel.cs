@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitLevel : MonoBehaviour
 {
-    [SerializeField] AudioClip clip;
+    [SerializeField] private AudioSource portalSound;
     
     Animator anim;
     [SerializeField] GameObject exitLevelReact;
@@ -13,6 +13,7 @@ public class ExitLevel : MonoBehaviour
     {
         anim = GetComponent<Animator>();
        
+        portalSound = GetComponent<AudioSource>();
         exitLevelReact.SetActive(false);
     }
 
@@ -22,7 +23,7 @@ public class ExitLevel : MonoBehaviour
          if(player != null)
         {
             
-            player.PlayeAudio(clip);
+            
             exitLevelReact.SetActive(true);
             anim.SetTrigger("Tele");
         }

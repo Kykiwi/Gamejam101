@@ -8,6 +8,7 @@ using TMPro;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] GameObject gameOverReact, fallReact;
+    [SerializeField] private AudioSource deathSound;
     Animator ani;
     Rigidbody2D body;
     private void Start()
@@ -35,7 +36,7 @@ public class PlayerLife : MonoBehaviour
     void PlayerDeath()
     {
         // change animation, sound physics if needed
-        
+        deathSound.Play();  
         body.bodyType = RigidbodyType2D.Static;
         ani.SetTrigger("death");
        

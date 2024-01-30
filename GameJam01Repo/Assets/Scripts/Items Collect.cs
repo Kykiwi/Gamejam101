@@ -7,10 +7,13 @@ public class ItemsCollect : MonoBehaviour
 {
     int collNum = 0;
     [SerializeField] TMP_Text collectText;
+
+    [SerializeField] private AudioSource collectSoundEffect;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Collectables"))
         {
+            collectSoundEffect.Play();
             Destroy(collision.gameObject);
             collNum++;
             collectText.text = " x " + collNum;
