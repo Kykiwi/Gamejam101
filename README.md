@@ -1,4 +1,4 @@
-This project was created for the Humber First Semester Game Jam. The game is about a penguin who is lost and trying to find its way back home.
+This project was created for the Humber First Semester Game Jam.
 
 It is a 2d platformer about players guiding a lost penguin through various challenges and environments to help it find its way back home.
 
